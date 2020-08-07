@@ -1,16 +1,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Students' Course Allocation</title>
+    <title>USer Activity</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src='http://code.jquery.com/jquery-latest.js'></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src='Assets/admin.js'></script>
+    <script src='Assets/moderator.js'></script>
     <link rel="stylesheet" href="Assets/crud.css">
-    <link rel="stylesheet" href="Assets/admin.css">
+    <link rel="stylesheet" href="Assets/moderator.css">
   </head>
   <body>
     <div class="side-nav" id="show-side-navigation1">
@@ -23,16 +23,15 @@
         </div>
       </div>
       <ul class="categories" style="margin-top: 60px;">
-        <li></i><a href="moderatormanagement.html">&nbsp;&nbsp;Moderator Management</a></li>
         <li></i><a href="usermanagement.html">&nbsp;&nbsp;User Management</a></li>
-        <li></i><a href="coursemanagement.html">&nbsp;&nbsp;Course Management</a></li>
+        <li></i><a href="useractivity.html">&nbsp;&nbsp;User Activity</a></li>
         <li></i><a href=""  class="down">&nbsp;&nbsp;Allocations</a>
           <ul class="side-nav-dropdown">
             <li> &nbsp;<a href="courseforstudent.html">Student's void</a></li>
             <li> &nbsp;<a href="instructorallocation.html">Intructor Allocation</a></li>
           </ul>
         </li>
-        <li></i><a href="announcements.html">&nbsp;&nbsp;Announcements</a></li>
+        <li></i><a href="discussionforum.html">&nbsp;&nbsp;Discussion Forum</a></li>
         <li></i><a href="" class="down">&nbsp;&nbsp;Settings</a>
           <ul class="side-nav-dropdown">
             <li> &nbsp;<a href="profilesettings.html">Profile Settings</a></li>
@@ -68,30 +67,11 @@
                       <li><a href="#" class="inboxmsg" class="notify"><span style="font-size: 20px;">Sajid</span><br><span class="notify"> Hi. how r u?</span></a></li>
                   </ul>
               </li>
-              <li>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell-o" ></i><span>98</span></a>
-                <ul class="dropdown-menu" style="margin-left: -200px;width: 250px;">
-                  <li><a href="#" class="notifymsg"><span class="notify" style="font-size: 20px;" maxlength="15">Advance Programming on Web Technology</span><br><span class="notify">Course video uploaded</span></a></li>
-                </ul>
-              </li>
             </ul>
           </div>
         </div>
       </nav>
-      <div class="announcements">
-        <h1>Announcements</h1>
-        <form>
-          <div class="announcementsform">
-           <label>Title</label>
-           <input type="text" class="title" required>
-          </div>
-           <div class="announcementsform">
-            <label>Details</label>
-            <textarea class="details" required></textarea>
-           </div>
-           <input type="submit" class="publish" value="Publish">
-        </form>
-      </div>
-  </section>
+
+    </section>
   </body>
 </html>

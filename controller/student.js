@@ -11,39 +11,39 @@ router.get('*', function(req, res, next){
 });
 
 router.get('/', function(req, res){
-  res.render('student/index');
+  res.render('student/index', {uname : req.session.username});
 });
 
 router.get('/mycourse', function(req, res){
-  res.render('student/mycourse');
+  res.render('student/mycourse', {uname : req.session.username});
 });
 
 router.get('/mygrades', function(req, res){
-  res.render('student/mygrades');
+  res.render('student/mygrades', {uname : req.session.username});
 });
 
 router.get('/profilesettings', function(req, res){
-  res.render('student/profilesettings');
+  res.render('student/profilesettings', {uname : req.session.username});
 });
 
 router.get('/security', function(req, res){
-  res.render('student/security');
+  res.render('student/security', {uname : req.session.username});
 });
 
 router.get('/consultation', function(req, res){
-  res.render('student/consultation');
+  res.render('student/consultation', {uname : req.session.username});
 });
 
 router.get('/myaccount', function(req, res){
-  res.render('student/myaccount');
+  res.render('student/myaccount', {uname : req.session.username});
 });
 
 router.get('/myinbox', function(req, res){
-  res.render('student/myinbox');
+  res.render('student/myinbox', {uname : req.session.username});
 });
 
 router.get('/coursefile', function(req, res){
-  res.render('student/coursefile');
+  res.render('student/coursefile', {uname : req.session.username});
 });
 
 

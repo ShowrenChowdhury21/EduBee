@@ -182,7 +182,7 @@ router.post('/addUser', function(req, res){
   var login = {
     username : req.body.name,
     password : req.body.Password,
-    role : 3
+    role : 5
   };
   studentmodel.insert(user, function(status){
     if(status){
@@ -206,7 +206,7 @@ router.post('/deleteUser', function(req, res){
 });
 
 router.get('/departmentmanagement', function(req, res){
-  res.render('superadmin/departmentmanagement');
+  res.render('superadmin/departmentmanagement', {uname : req.session.username});
 });
 
 router.get('/coursemanagement', function(req, res){
@@ -255,31 +255,31 @@ router.post('/deleteCourse', function(req, res){
 });
 
 router.get('/courseforstudent', function(req, res){
-  res.render('superadmin/courseforstudent');
+  res.render('superadmin/courseforstudent', {uname : req.session.username});
 });
 
 router.get('/instructorallocation', function(req, res){
-  res.render('superadmin/instructorallocation');
+  res.render('superadmin/instructorallocation', {uname : req.session.username});
 });
 
 router.get('/announcements', function(req, res){
-  res.render('superadmin/announcements');
+  res.render('superadmin/announcements', {uname : req.session.username});
 });
 
 router.get('/profilesettings', function(req, res){
-  res.render('superadmin/profilesettings');
+  res.render('superadmin/profilesettings', {uname : req.session.username});
 });
 
 router.get('/security', function(req, res){
-  res.render('superadmin/security');
+  res.render('superadmin/security', {uname : req.session.username});
 });
 
 router.get('/myaccount', function(req, res){
-  res.render('superadmin/myaccount');
+  res.render('superadmin/myaccount', {uname : req.session.username});
 });
 
 router.get('/myinbox', function(req, res){
-  res.render('superadmin/myinbox');
+  res.render('superadmin/myinbox', {uname : req.session.username});
 });
 
 

@@ -38,7 +38,7 @@ userid.addEventListener("keyup", function(){
 var password = document.querySelector('#password');
 
 password.addEventListener('keyup', function(){
-	if(password.value.length == 0 || password.value.length < 8)
+	if(password.value.length == 0 || password.value.length < 5)
 	{
 		password.style.border = '2px solid red';
 	}else{
@@ -52,7 +52,7 @@ function validate(){
 	{
 		document.getElementById('err').innerHTML = "Invalid User id";
 		return false;
-	}else if(password.value.length == 0 || password.value.length < 8){
+	}else if(password.value.length == 0 || password.value.length < 5){
 		document.getElementById('error').innerHTML = "Invalid Password";
 		return false;
 	}

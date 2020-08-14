@@ -1,5 +1,8 @@
 var express 	= require('express');
 var userModel 	= require.main.require('./models/user');
+var adminmodel 	= require.main.require('./models/adminmodel');
+var studentmodel 	= require.main.require('./models/studentmodel');
+var instructormodel 	= require.main.require('./models/instructormodel');
 var router 		= express.Router();
 
 router.get('/', function(req, res){

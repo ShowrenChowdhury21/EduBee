@@ -16,7 +16,7 @@ router.get('*', function(req, res, next){
 });
 
 router.get('/', function(req, res){
-  res.render('admin/index');
+  res.render('admin/index', {uname : req.session.username});
 });
 
 router.get('/moderatormanagement', function(req, res){

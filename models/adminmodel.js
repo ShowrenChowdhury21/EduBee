@@ -3,10 +3,10 @@ var db = require('./db');
 module.exports ={
 
 	get: function(id, callback){
-		var sql = "select * from admin where ID=?";
+		var sql = "select * from admin where name=?";
 		db.getResults(sql, [id], function(result){
 			if(result.length > 0){
-				callback(result[0]);
+				callback(result);
 			}else{
 				callback([]);
 			}

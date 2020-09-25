@@ -14,7 +14,7 @@ module.exports ={
 	},
 
 	getAll: function(callback){
-		var sql = "select * from users";
+		var sql = "select * from post";
 		db.getResults(sql, null,  function(result){
 			if(result.length > 0){
 				callback(result);
@@ -23,6 +23,17 @@ module.exports ={
 			}
 		});
 	},
+	getAllAnnouncements:function(callback){
+		var sql = "select * from time";
+		db.getResults(sql, null,  function(result){
+			if(result.length > 0){
+				callback(result);
+			}else{
+				callback([]);
+			}
+		});
+	},
+
 
 	validate: function(user, callback){
 		var sql = "select * from users where username=? and password=?";
@@ -35,10 +46,10 @@ module.exports ={
 		});
 	},
 
-	insert: function(user, callback){
-		console.log(user);
-		var sql = "insert into users values(?, ?, ?, ?)";
-		db.execute(sql, ['', user.username, user.password, user.role], function(status){
+	insert: function(post, callback){
+		var sql = "insert into post values(?, ?, ?, ?, ?, ?)";
+
+		db.execute(sql, ['', post.id, post.name, post.title, post.details, post.time], function(status){
 			if(status){
 				callback(true);
 			}else{
@@ -48,8 +59,8 @@ module.exports ={
 	},
 
 	update: function(user, callback){
-		var sql = "update users set username=?, password=?, type=? where username=?";
-		db.execute(sql, [user.username, user.password, user.type, user.username], function(status){
+		var sql = "update users set username=?, password=?, type=? where ID=?";
+		db.execute(sql, [user.username, user.password, user.type, user.id], function(status){
 			if(status){
 				callback(true);
 			}else{

@@ -8,6 +8,7 @@ var admin = require('./controller/admin');
 var instructor = require('./controller/instructor');
 var student = require('./controller/student');
 var moderator = require('./controller/moderator');
+var forum = require('./controller/forum');
 var files = require('express-fileupload');
 var app 		= express();
 
@@ -29,6 +30,7 @@ app.use('/admin', admin);
 app.use('/moderator', moderator);
 app.use('/instructor', instructor);
 app.use('/student', student);
+app.use('/forum', forum);
 
 app.get('/', function(req, res){
 	res.redirect('/home');

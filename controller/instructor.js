@@ -5,16 +5,16 @@ var coursesmodel = require.main.require('./models/coursesmodel');
 
 var router 		= express.Router();
 
-// router.get('*', function(req, res, next){
-// 	if(req.session.username == null){
-// 		res.redirect('/login');
-// 	}else{
-// 		next();
-// 	}
-// });
+router.get('*', function(req, res, next){
+  if(req.session.username == null){
+		res.redirect('/login');
+	}else{
+		next();
+	}
+ });
 
 router.get('/', function(req, res){
-  res.render('instructor/index');
+  res.render('instructor/index',{uname : req.session.username});
 });
 
 router.get('/classes', function(req, res){
@@ -34,31 +34,32 @@ router.post('/grades', function(req, res){
 });
 
 router.get('/coursegrades/:id', function(req, res){
-  res.render("instructor/coursegrades");
+  res.render("instructor/coursegrades",{uname : req.session.username});
 });
 
-router.get('/discussionforum', function(req, res){
-  res.render('instructor/discussionforum');
-});
 
 router.get('/profilesettings', function(req, res){
-  res.render('instructor/profilesettings');
+  res.render('instructor/profilesettings',{uname : req.session.username});
 });
 
 router.get('/security', function(req, res){
-  res.render('instructor/security');
+  res.render('instructor/security',{uname : req.session.username});
 });
 
 router.get('/myaccount', function(req, res){
-  res.render('instructor/myaccount');
+  res.render('instructor/myaccount',{uname : req.session.username});
 });
 
 router.get('/myinbox', function(req, res){
-  res.render('instructor/myinbox');
+  res.render('instructor/myinbox',{uname : req.session.username});
 });
 
 router.get('/coursefile', function(req, res){
-  res.render('instructor/coursefile');
+  res.render('instructor/coursefile',{uname : req.session.username});
+});
+
+router.get('/studentlist', function(req, res){
+  res.render('instructor/studentlist',{uname : req.session.username});
 });
 
 router.post('/coursefile', function(req, res){
@@ -74,30 +75,6 @@ router.post('/coursefile', function(req, res){
 				res.render('instructor/coursefile');
 		}
 		})
-
-/*
-		var video = req.files.videos;
-		var videoname = video.name;
-		console.log(videoname);
-		video.mv('../EduBee/Assets/Upload/Videos/'+videoname, function(err){
-			if(err){
-				res.send(err);
-			}else{
-				res.send("Video Uploaded!!");
-			}
-		})
-
-
-		var assessment = req.files.assessments;
-		var assessmentname = assessment.name;
-		console.log(assessmentname);
-		assessment.mv('../EduBee/Assets/Upload/Assignments/'+assessmentname, function(err){
-			if(err){
-				res.send(err);
-			}else{
-				res.send("Assessment Uploaded!!");
-			}
-		})*/
 	}
 });
 

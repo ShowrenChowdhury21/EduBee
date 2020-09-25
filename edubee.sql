@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 14, 2020 at 12:18 AM
+-- Generation Time: Aug 19, 2020 at 06:05 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `edubee`
+-- Database: `edubee2`
 --
 
 -- --------------------------------------------------------
@@ -137,6 +137,30 @@ INSERT INTO `moderator` (`ID`, `name`, `email`, `address`, `phone_number`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `post`
+--
+
+CREATE TABLE `post` (
+  `pid` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
+  `name` varchar(24) NOT NULL,
+  `title` varchar(24) NOT NULL,
+  `details` varchar(128) NOT NULL,
+  `time` datetime(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `post`
+--
+
+INSERT INTO `post` (`pid`, `id`, `name`, `title`, `details`, `time`) VALUES
+(1, 1, 'superadmin', '1st post title', 'the post', '0000-00-00 00:00:00.00'),
+(2, 1, 'superadmin', '1st post title', 'the post', '0000-00-00 00:00:00.00'),
+(3, 0, 'superadmin', '2nd', 'dfdf', '2020-08-14 09:29:08.02');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `student`
 --
 
@@ -156,6 +180,28 @@ CREATE TABLE `student` (
 
 INSERT INTO `student` (`ID`, `name`, `email`, `phone_number`, `program`, `courses`, `CGPA`) VALUES
 (6, 'sajid', 'sajid@edubee.com', 154784451, 'Bsc. CSE', '', 3.99);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `time`
+--
+
+CREATE TABLE `time` (
+  `aid` int(11) NOT NULL,
+  `name` varchar(24) NOT NULL,
+  `title` varchar(48) NOT NULL,
+  `details` varchar(128) NOT NULL,
+  `time` datetime(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `time`
+--
+
+INSERT INTO `time` (`aid`, `name`, `title`, `details`, `time`) VALUES
+(1, 'admin', '1st announsment title', '1st announsment title for test not title', '0000-00-00 00:00:00.00'),
+(2, 'admin', '1st announsment title', '1st announsment title for test not title', '0000-00-00 00:00:00.00');
 
 -- --------------------------------------------------------
 
@@ -191,6 +237,18 @@ INSERT INTO `users` (`ID`, `username`, `password`, `role`) VALUES
 --
 
 --
+-- Indexes for table `post`
+--
+ALTER TABLE `post`
+  ADD PRIMARY KEY (`pid`);
+
+--
+-- Indexes for table `time`
+--
+ALTER TABLE `time`
+  ADD PRIMARY KEY (`aid`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -199,6 +257,18 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `post`
+--
+ALTER TABLE `post`
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `time`
+--
+ALTER TABLE `time`
+  MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`

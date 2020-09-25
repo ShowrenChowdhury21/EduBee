@@ -7,13 +7,13 @@ var studentmodel 	= require.main.require('./models/studentmodel');
 var coursesmodel 	= require.main.require('./models/coursesmodel');
 var router 		= express.Router();
 
-// router.get('*', function(req, res, next){
-// 	if(req.session.username == null){
-// 		res.redirect('/login');
-// 	}else{
-// 		next();
-// 	}
-// });
+router.get('*', function(req, res, next){
+	if(req.session.username == null){
+		res.redirect('/login');
+	}else{
+		next();
+	}
+});
 
 router.get('/', function(req, res){
   res.render('superadmin/index', {uname : req.session.username});
@@ -203,6 +203,58 @@ router.post('/deleteUser', function(req, res){
       res.redirect("/superadmin/usermanagement");
     }
   });
+});
+
+router.post('/updateUser', function(req, res){
+  if (req.body.role == 4 ) {
+    var user = {
+    id : req.body.id,
+    name : req.body.name,
+    email : req.body.email,
+    phone_number : req.body.Phone,
+    courses : 0
+  };
+  var login = {
+    username : req.body.name,
+    password : req.body.Password,
+    role : 3
+  };
+  instructormodel.update(user, function(status){
+    if(status){
+      usermodel.update(login, function(sta){
+        if(sta){
+          res.redirect("/superadmin/usermanagement");
+        }
+      });
+    }
+  });
+  }
+  else if (req.body.role == 5 ){
+    var user = {
+    ID : req.body.id,
+    name : req.body.name,
+    email : req.body.email,
+    phone_number : req.body.Phone,
+    program : 0,
+    courses : 0,
+    CGPA : 0
+  };
+  var login = {
+    username : req.body.name,
+    password : req.body.Password,
+    role : 5
+  };
+  studentmodel.update(user, function(status){
+    if(status){
+      usermodel.update(login, function(sta){
+        if(sta){
+          res.redirect("/superadmin/usermanagement");
+        }
+      });
+    }
+  });
+  }
+
 });
 
 router.get('/departmentmanagement', function(req, res){
